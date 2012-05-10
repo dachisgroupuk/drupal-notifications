@@ -1,0 +1,3 @@
+[submodule "lib/notifications"]
+	path = lib/notifications
+	url = git@github.com:headshift/notifications.git

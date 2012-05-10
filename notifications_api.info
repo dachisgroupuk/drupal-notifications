@@ -1,0 +1,5 @@
+name = Notifications API
+description = An API similar to the form API for working with notifications
+core = 7.x
+package = Notifications
+files[] = notifications_api.module
