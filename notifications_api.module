@@ -44,10 +44,20 @@ function _notifications_api_generate_notifications($type, $op, $payload) {
 
   $factories = array();
 
-  foreach (module_implements('notifications_api_generate') as $module) {
+  // Run hook_notification_TYPE_OP
+  foreach (module_implements('notification_' . $type . '_' . $op) as $module) {
     $factory = new Notifications_Api_Factory_Queue($module, $type, $op, $payload);
 
-    $function = $module . '_notifications_api_generate';
+    $function = $module . '_notification_' . $type . '_' . $op;
+    $function($factory);
+    $factories[] = $factory;
+  }
+
+  // Run hook_notification
+  foreach (module_implements('notification') as $module) {
+    $factory = new Notifications_Api_Factory_Queue($module, $type, $op, $payload);
+
+    $function = $module . '_notification';
     $function($factory);
     $factories[] = $factory;
   }
