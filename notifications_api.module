@@ -32,7 +32,8 @@ function notifications_api_notify($type, $op, $payload) {
 
 
 /**
- * Generates the notifications per module
+ * Provides a notifications factory to anymodule implementing both
+ * hook_notification_TYPE_OP and hook_notification
  *
  * @return array of Notifications_Api_Factory_Queue
  * @author Maarten Jacobs
