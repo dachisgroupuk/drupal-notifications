@@ -1,0 +1,50 @@
+<?php
+
+
+/**
+ * Implements hook_comment_insert().
+ */
+function notifications_api_content_comment_insert($comment) {
+  $op = 'insert';
+  notifications_api_notify('comment', $op, $comment);
+}
+
+/**
+ * Implements hook_comment_update().
+ */
+function notifications_api_content_comment_update($comment) {
+  $op = 'update';
+  notifications_api_notify('comment', $op, $comment);
+}
+
+/**
+ * Implements hook_comment_delete().
+ */
+function notifications_api_content_comment_delete($comment) {
+  $op = 'delete';
+  notifications_api_notify('comment', $op, $comment);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function notifications_api_content_node_update($node) {
+  $op = 'update';
+  notifications_api_notify('node', $op, $node);
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function notifications_api_content_node_insert($node) {
+  $op = 'insert';
+  notifications_api_notify('node', $op, $node);
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function notifications_api_content_node_delete($node) {
+  $op = 'delete';
+  notifications_api_notify('node', $op, $node);
+}

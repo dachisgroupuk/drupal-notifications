@@ -1,0 +1,3 @@
+This module provides insert, update, delete and view hooks for nodes and
+comments. You can use these to generate notifications when node/comment
+content is inserted, updated or deleted.
